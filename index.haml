@@ -1,0 +1,84 @@
+-galery_images= [{name:"programacion.jpg"},{name:"lenguajes.jpg"},{name:"responisvo.jpg"}]
+!!!5
+%html{class:"no-js",lang:"es"}
+	%head
+		%meta{charset:"utf-8"}
+		%title 3ASystem 
+		%meta{name:"description",content:"Desarrollo de cualquier tipo de software empresarial y de calidad utilizando las más modernas y mejores tecnologías."}
+		%link{:rel => "stylesheet", :href => "css/normalize.css"}/
+		%link{:rel => "stylesheet", :href => "css/flexboxgrid.min.css"}/
+		%link{:rel => "stylesheet", :href => "css/bootstrap.min.css"}/
+		%link{:rel => "stylesheet", :href => "css/bootstrap-theme.min.css"}/
+		%link{:rel => "stylesheet", :href => "css/estilos.css"}/
+		%meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+		%meta{:"data-name" => "image-counter" , content:"#{galery_images.size - 1}"}
+	%body
+		="<!--[if lt IE9]>"
+		%p{class:"browserupgrade"}
+			Estas usando un navegador
+			%strong desactualizado.
+			Por favor
+			%a{:href => "http://browsehappy.com/"}
+				actualiza tu navegador para un mejor experiencia
+		="<![endif]-->"
+		.video-container
+			%video{autoplay:true,loop:true,width:"1200", height:"720",poster:"videos/imagen/hola-mundo.jpg"}
+				%source{src:"videos/mp4/hola-mundo.mp4",typ:"video/mp4"}
+				%source{src:"videos/webm/hola-mundo.webm",typ:"video/webm"}
+		.row.full-height.center-xs.middle-xs.relative.to-front
+			.col-xs-12
+				.box.white-text
+					%img{:src => "images/logo.png", :alt => "", width:"200"}/
+					%h1.baloo-font.titulo.no-margen 3A System
+					%p#is-open.no-margen 
+						%i.glyphicon.glyphicon-time
+						Abierto ahora.
+			%nav.menu.white-text#navigation.navigation.fixed.top.right
+				-menu = ["Inicio","Servicios","Galería","Contáctenos","Cómo llegar"]
+				%ul.list-inline
+					-menu.each do |item|
+						%li
+							%a{:href => "#"}= item
+			.absolute#description.white-text.padding-large.full-width
+				.row.middle-xs.center-xs
+					.col-xs-7.col-sm-6.white-text.font-medium
+						3ASystem Software Developers.
+					.col-xs#sticky-navigation.hidden
+						.box
+							%nav.navigation.text-right
+								%ul.list-inline
+									-menu.each do |item|
+										%li
+											%a{:href => "#"}= item
+		.text-center.relative#menu
+			.absolute.white#menu-title.negrita.subtitulo
+				%h3 SERVICIOS
+			-menu_photos = [{name:"Análisis de Sistemas",descripcion:"Análisis de Sistemas",imagen:"analisis.jpg"},{name:"Android",descripcion:"Aplicaciones Android",imagen:"android.jpg"},{name:"Asesoría de Sistemas",descripcion:"Asesoría de sistemas",imagen:"asesoria.jpg"},{name:"Auditoria de sistemas",descripcion:"Auditoría de sistemas",imagen:"auditoria.jpg"},{name:"Base de datos",descripcion:"Bases de datos",imagen:"basedatos.jpg"},{name:"HTML",descripcion:"html",imagen:"html.jpg"},{name:"Java",descripcion:"Programación java",imagen:"java.jpg"},{name:"Redes",descripcion:"Redes informáticas",imagen:"redes.jpg"}]
+			.row
+				-menu_photos.each do |photo|
+					.col-xs-12.col-sm-6.col-md-4.col-lg-3.foto{style:"background-image:url(images/fotos/#{photo[:imagen]})"}
+						.screen
+							.row.middle-xs.full-height
+								.col-xs-12.white-text
+									.box
+										%h3.baloo-font.no-margen= photo[:name]
+										%small=  photo[:descripcion]
+		#gallery
+			.inner
+				-galery_images.each do |imagen|
+					.imagen-gallery{style:"background-image:url(images/fotos/#{imagen[:name]})"}
+
+		.container
+			.card.black-text.white.text-center.padding-medium.relative
+				%h2.font-large.baloo-font
+					3ASystem Software Developers
+				%blockquote
+					%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, vel. Consequatur at numquam sit, culpa atque velit, natus omnis quos aliquam nobis debitis fugiat sequi distinctio, neque aspernatur quod enim!
+					%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ab, numquam! At, culpa similique numquam animi aperiam unde. Repudiandae illum perferendis blanditiis maiores doloremque, deleniti, in accusantium cumque nemo. Voluptatibus.
+					%footer Ricardo Alvarado Aponte
+
+					
+		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
+		%script{src:"js/vendor/jquery-1.12.4.min.js"}
+		%script{src:"js/bootstrap.min.js"}
+		%script{src:"dist/main.js"}
